@@ -3,6 +3,11 @@ import logo from "@/assets/cedro-logo.png.asset.json";
 import hero from "@/assets/hero-kitchen.jpg";
 import closet from "@/assets/closet.jpg";
 import living from "@/assets/living.jpg";
+import p1 from "@/assets/port-cozinha-azul.jpg.asset.json";
+import p2 from "@/assets/port-cozinha-cinza.jpg.asset.json";
+import p3 from "@/assets/port-dormitorio-ripado.jpg.asset.json";
+import p4 from "@/assets/port-quarto-planejado.jpg.asset.json";
+import p5 from "@/assets/port-penteadeira.jpg.asset.json";
 import workshop from "@/assets/workshop.jpg";
 
 // WhatsApp da Cedro
@@ -87,6 +92,20 @@ function Index() {
             {services.map((s) => <div key={s} className="bg-card p-6 text-center font-display text-xl">{s}</div>)}
           </div>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <p className="eyebrow text-center">Portfólio</p>
+        <h2 className="mt-4 text-center font-display text-4xl md:text-5xl">Projetos que entregamos</h2>
+        <div className="mt-12 columns-1 gap-4 sm:columns-2 md:columns-3">
+          {[[p2, "Cozinha planejada com cristaleira iluminada"], [p1, "Cozinha planejada azul"], [p3, "Dormitório com painel ripado"], [p5, "Penteadeira com espelho iluminado"], [p4, "Quarto planejado com painel em madeira"]].map(([img, t]) => (
+            <figure key={t as string} className="group relative mb-4 break-inside-avoid overflow-hidden rounded-sm">
+              <img src={(img as { url: string }).url} alt={t as string} loading="lazy" className="w-full transition duration-700 group-hover:scale-105" />
+              <figcaption className="absolute inset-x-0 bottom-0 bg-overlay p-4 text-sm">{t as string}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <div className="mt-10 text-center"><Cta>Quero um projeto assim</Cta></div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-24">
