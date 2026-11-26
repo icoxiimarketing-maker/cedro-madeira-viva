@@ -146,7 +146,7 @@ function Index() {
         <img src={workshop} alt="Marceneiro finalizando móvel" loading="lazy" width={1024} height={1024} className="aspect-square w-full rounded-sm object-cover" />
         <div>
           <p className="eyebrow">Nossa história</p>
-          <h2 className="mt-4 font-display text-4xl md:text-5xl">Marcenaria feita com precisão.</h2>
+          <h2 className="mt-4 font-display text-4xl md:text-5xl">De pai para filho, a arte de transformar madeira em lar.</h2>
           <p className="mt-6 text-muted-foreground">Somos uma empresa familiar, que prioriza atendimento rápido com acabamentos impecáveis. A Cedro acompanha cada projeto do planejamento à instalação, com materiais selecionados e atenção a cada detalhe.</p>
           <div className="mt-8 grid grid-cols-2 gap-6 border-y border-border py-6">
             <div><p className="font-display text-5xl text-primary">25</p><p className="text-sm text-muted-foreground">anos de mercado</p></div>
