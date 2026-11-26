@@ -52,7 +52,7 @@ function Index() {
           <p className="mt-6 text-lg text-muted-foreground">Projeto personalizado, fabricação própria e acabamento de alto padrão — do desenho à instalação.</p>
           <div className="mt-10"><Cta>Solicitar orçamento grátis</Cta></div>
           <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-            <li>✓ Fabricação própria</li><li>✓ Projeto personalizado</li><li>✓ Garantia</li>
+            <li>✓ 25 anos de mercado</li><li>✓ Orçamento e entrega mais rápidos da região</li><li>✓ Fabricação própria</li>
           </ul>
         </div>
       </section>
@@ -62,7 +62,11 @@ function Index() {
         <div>
           <p className="eyebrow">Quem somos</p>
           <h2 className="mt-4 font-display text-4xl md:text-5xl">Marcenaria feita com precisão.</h2>
-          <p className="mt-6 text-muted-foreground">A Cedro desenvolve móveis sob medida que unem estética, funcionalidade e acabamento impecável. Acompanhamos cada projeto do planejamento à instalação, com materiais selecionados e atenção a cada detalhe.</p>
+          <p className="mt-6 text-muted-foreground">Há 25 anos, a Cedro desenvolve móveis sob medida que unem estética, funcionalidade e acabamento impecável. Acompanhamos cada projeto do planejamento à instalação, com materiais selecionados e atenção a cada detalhe.</p>
+          <div className="mt-8 grid grid-cols-2 gap-6 border-y border-border py-6">
+            <div><p className="font-display text-5xl text-primary">25</p><p className="text-sm text-muted-foreground">anos de mercado</p></div>
+            <div><p className="font-display text-2xl leading-tight text-primary">Mais rápido da região</p><p className="text-sm text-muted-foreground">no orçamento e na entrega</p></div>
+          </div>
           <div className="mt-8"><Cta /></div>
         </div>
       </section>
@@ -125,7 +129,7 @@ function Index() {
 
       <section className="border-t border-border px-6 py-24 text-center">
         <h2 className="mx-auto max-w-2xl font-display text-4xl md:text-6xl">Vamos criar o seu próximo ambiente.</h2>
-        <p className="mt-4 text-muted-foreground">Orçamento sem compromisso pelo WhatsApp.</p>
+        <p className="mt-4 text-muted-foreground">Orçamento sem compromisso e o mais rápido da região, pelo WhatsApp.</p>
         <div className="mt-10"><Cta>Falar no WhatsApp</Cta></div>
       </section>
 
