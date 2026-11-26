@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import logo from "@/assets/cedro-logo.png.asset.json";
+import { useEffect, useState } from "react";
+import logo from "@/assets/cedro-logo-mark.png";
 import hero from "@/assets/hero-kitchen.jpg";
 import closet from "@/assets/closet.jpg";
 import living from "@/assets/living.jpg";
@@ -27,11 +28,82 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const sections = [
+  ["#sobre", "Quem somos"],
+  ["#servicos", "Serviços"],
+  ["#portfolio", "Portfólio"],
+  ["#processo", "Como funciona"],
+  ["#depoimentos", "Depoimentos"],
+  ["#duvidas", "Dúvidas"],
+];
+
 function Cta({ children = "Solicitar orçamento" }: { children?: string }) {
   return (
     <a href={WHATS} target="_blank" rel="noopener" className="inline-flex items-center justify-center gap-2 rounded-sm bg-whatsapp px-7 py-4 text-sm font-medium uppercase tracking-widest text-background transition hover:brightness-110">
       {children}
     </a>
+  );
+}
+
+function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled || open ? "border-b border-border bg-background/85 backdrop-blur-md" : "border-b border-transparent"}`}>
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-3 md:px-8">
+        <a href="#inicio" onClick={() => setOpen(false)} className="shrink-0">
+          <img src={logo} alt="Cedro Móveis Sob Medida" className="h-14 w-auto object-contain md:h-16" />
+        </a>
+
+        <nav className="hidden items-center gap-7 lg:flex">
+          {sections.map(([href, label]) => (
+            <a key={href} href={href} className="text-xs uppercase tracking-[0.2em] text-muted-foreground transition hover:text-primary">
+              {label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-3">
+          <a href={WHATS} target="_blank" rel="noopener" className="hidden rounded-sm border border-primary px-5 py-2 text-xs uppercase tracking-widest text-primary transition hover:bg-primary hover:text-primary-foreground sm:inline-flex">
+            WhatsApp
+          </a>
+          <button
+            type="button"
+            aria-label={open ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex h-10 w-10 items-center justify-center border border-border text-foreground transition hover:border-primary hover:text-primary lg:hidden"
+          >
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round">
+              {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+      {open && (
+        <nav className="fixed inset-x-0 bottom-0 top-20 z-40 overflow-y-auto border-t border-border bg-background lg:hidden">
+          {sections.map(([href, label]) => (
+            <a key={href} href={href} onClick={() => setOpen(false)} className="block border-b border-border px-6 py-4 text-sm uppercase tracking-[0.2em] text-muted-foreground transition hover:bg-card hover:text-primary">
+              {label}
+            </a>
+          ))}
+          <a href={WHATS} target="_blank" rel="noopener" onClick={() => setOpen(false)} className="block px-6 py-4 text-sm uppercase tracking-[0.2em] text-whatsapp">
+            Falar no WhatsApp
+          </a>
+        </nav>
+      )}
+    </>
   );
 }
 
@@ -42,27 +114,26 @@ const faq = [["Quanto tempo leva um projeto?", "Depende da complexidade. Após a
 
 function Index() {
   return (
-    <main>
-      <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-5 md:px-12">
-        <img src={logo.url} alt="Cedro Móveis Sob Medida" className="h-16 w-16 rounded-sm object-cover" />
-        <a href={WHATS} target="_blank" rel="noopener" className="rounded-sm border border-primary px-5 py-2 text-xs uppercase tracking-widest text-primary transition hover:bg-primary hover:text-primary-foreground">WhatsApp</a>
-      </header>
+    <main id="inicio">
+      <Header />
 
       <section className="relative flex min-h-[92vh] items-center">
         <img src={hero} alt="Cozinha planejada em madeira" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-overlay" />
-        <div className="relative z-10 max-w-2xl px-6 md:px-12">
-          <p className="eyebrow">Marcenaria sob medida</p>
-          <h1 className="mt-5 font-display text-5xl leading-[1.05] md:text-7xl">Móveis planejados para ambientes exclusivos.</h1>
-          <p className="mt-6 text-lg text-muted-foreground">Projeto personalizado, fabricação própria e acabamento de alto padrão — do desenho à instalação.</p>
-          <div className="mt-10"><Cta>Solicitar orçamento grátis</Cta></div>
-          <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-            <li>✓ 25 anos de mercado</li><li>✓ Orçamento e entrega mais rápidos da região</li><li>✓ Fabricação própria</li>
-          </ul>
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pt-28 md:px-8">
+          <div className="max-w-2xl">
+            <p className="eyebrow">Marcenaria sob medida</p>
+            <h1 className="mt-5 font-display text-5xl leading-[1.05] md:text-7xl">Móveis planejados para ambientes exclusivos.</h1>
+            <p className="mt-6 text-lg text-muted-foreground">Projeto personalizado, fabricação própria e acabamento de alto padrão — do desenho à instalação.</p>
+            <div className="mt-10"><Cta>Solicitar orçamento grátis</Cta></div>
+            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+              <li>✓ 25 anos de mercado</li><li>✓ Orçamento e entrega mais rápidos da região</li><li>✓ Fabricação própria</li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-2">
+      <section id="sobre" className="mx-auto grid max-w-6xl scroll-mt-24 items-center gap-12 px-6 py-24 md:grid-cols-2 md:px-8">
         <img src={workshop} alt="Marceneiro finalizando móvel" loading="lazy" width={1024} height={1024} className="aspect-square w-full rounded-sm object-cover" />
         <div>
           <p className="eyebrow">Quem somos</p>
@@ -76,7 +147,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="bg-card px-6 py-24">
+      <section id="servicos" className="scroll-mt-24 bg-card px-6 py-24 md:px-8">
         <div className="mx-auto max-w-6xl">
           <p className="eyebrow text-center">Serviços</p>
           <h2 className="mt-4 text-center font-display text-4xl md:text-5xl">O que fazemos</h2>
@@ -94,7 +165,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-24">
+      <section id="portfolio" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24 md:px-8">
         <p className="eyebrow text-center">Portfólio</p>
         <h2 className="mt-4 text-center font-display text-4xl md:text-5xl">Projetos que entregamos</h2>
         <div className="mt-12 columns-1 gap-4 sm:columns-2 md:columns-3">
@@ -108,7 +179,7 @@ function Index() {
         <div className="mt-10 text-center"><Cta>Quero um projeto assim</Cta></div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-24">
+      <section id="processo" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24 md:px-8">
         <p className="eyebrow text-center">Como funciona</p>
         <h2 className="mt-4 text-center font-display text-4xl md:text-5xl">Do projeto à entrega</h2>
         <ol className="mt-14 grid gap-10 md:grid-cols-3">
@@ -122,7 +193,7 @@ function Index() {
         </ol>
       </section>
 
-      <section className="bg-card px-6 py-24">
+      <section id="depoimentos" className="scroll-mt-24 bg-card px-6 py-24 md:px-8">
         <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
           {reviews.map(([q, n]) => (
             <figure key={n} className="border border-border p-8">
@@ -134,7 +205,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 py-24">
+      <section id="duvidas" className="mx-auto max-w-3xl scroll-mt-24 px-6 py-24">
         <h2 className="text-center font-display text-4xl md:text-5xl">Perguntas frequentes</h2>
         <div className="mt-10 divide-y divide-border">
           {faq.map(([q, a]) => (
@@ -146,7 +217,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="border-t border-border px-6 py-24 text-center">
+      <section id="contato" className="scroll-mt-24 border-t border-border px-6 py-24 text-center">
         <h2 className="mx-auto max-w-2xl font-display text-4xl md:text-6xl">Vamos criar o seu próximo ambiente.</h2>
         <p className="mt-4 text-muted-foreground">Orçamento sem compromisso e o mais rápido da região, pelo WhatsApp.</p>
         <div className="mt-10"><Cta>Falar no WhatsApp</Cta></div>
