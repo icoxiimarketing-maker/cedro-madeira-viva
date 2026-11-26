@@ -3,13 +3,16 @@ import { useEffect, useState } from "react";
 import logo from "@/assets/cedro-logo-mark.png";
 import hero from "@/assets/hero-kitchen.jpg";
 import closet from "@/assets/closet.jpg";
-import living from "@/assets/living.jpg";
 import p1 from "@/assets/port-cozinha-azul.jpg.asset.json";
 import p2 from "@/assets/port-cozinha-cinza.jpg.asset.json";
 import p3 from "@/assets/port-dormitorio-ripado.jpg.asset.json";
 import p4 from "@/assets/port-quarto-planejado.jpg.asset.json";
 import p5 from "@/assets/port-penteadeira.jpg.asset.json";
 import workshop from "@/assets/workshop.jpg";
+import banheiro from "@/assets/svc-banheiro.jpg";
+import homeOffice from "@/assets/svc-home-office.jpg";
+import corporativo from "@/assets/svc-corporativo.jpg";
+import loja from "@/assets/svc-loja.jpg";
 
 // WhatsApp da Cedro
 const WHATS = "https://wa.me/5541998359963?text=" + encodeURIComponent("Olá! Gostaria de solicitar um orçamento de móveis sob medida.");
@@ -29,7 +32,7 @@ export const Route = createFileRoute("/")({
 });
 
 const sections = [
-  ["#sobre", "Quem somos"],
+  ["#sobre", "Nossa história"],
   ["#servicos", "Serviços"],
   ["#portfolio", "Portfólio"],
   ["#processo", "Como funciona"],
@@ -107,7 +110,16 @@ function Header() {
   );
 }
 
-const services = ["Cozinhas planejadas", "Closets", "Dormitórios", "Banheiros", "Painéis ripados", "Home office", "Móveis corporativos", "Lojas comerciais"];
+const services: [string, string, string][] = [
+  [p2.url, "Cozinhas planejadas", "O coração da casa, pensado para receber e cozinhar com prazer."],
+  [closet, "Closets", "Cada peça no seu lugar, com elegância de boutique."],
+  [p3.url, "Dormitórios", "Conforto e organização para o seu descanso."],
+  [banheiro, "Banheiros", "Gabinetes resistentes com o charme da madeira."],
+  [p4.url, "Painéis ripados", "Textura e aconchego que transformam qualquer parede."],
+  [homeOffice, "Home office", "Produtividade com estilo, no conforto de casa."],
+  [corporativo, "Móveis corporativos", "Ambientes que transmitem a força da sua marca."],
+  [loja, "Lojas comerciais", "Expositores que valorizam o seu produto e encantam clientes."],
+];
 const steps = [["Atendimento", "Entendemos sua necessidade e espaço."], ["Projeto", "Desenho sob medida com materiais e acabamentos."], ["Aprovação", "Você valida cada detalhe antes da produção."], ["Fabricação", "Produção própria com controle de qualidade."], ["Instalação", "Montagem profissional e cuidadosa."], ["Entrega", "Ambiente pronto, no prazo combinado."]];
 const reviews = [["O projeto ficou exatamente como imaginávamos. Acabamento impecável.", "Mariana A."], ["Tudo muito organizado do atendimento à instalação.", "Rafael M."], ["Qualidade excelente e entrega dentro do prazo.", "Juliana S."]];
 const faq = [["Quanto tempo leva um projeto?", "Depende da complexidade. Após a medição, passamos um cronograma realista do projeto à instalação."], ["Vocês trabalham com arquitetos?", "Sim. Executamos projetos próprios e em parceria com arquitetos e designers."], ["Os móveis têm garantia?", "Sim, oferecemos garantia sobre fabricação e instalação, detalhada na proposta."], ["Como solicito orçamento?", "Fale conosco pelo WhatsApp. Agendamos a medição e enviamos sua proposta."]];
@@ -123,11 +135,11 @@ function Index() {
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pt-28 md:px-8">
           <div className="max-w-2xl">
             <p className="eyebrow">Marcenaria sob medida</p>
-            <h1 className="mt-5 font-display text-5xl leading-[1.05] md:text-7xl">Móveis planejados para ambientes exclusivos.</h1>
+            <h1 className="mt-5 font-display text-5xl leading-[1.05] md:text-7xl">Móveis Planejados em Curitiba e região. Feito para quem busca exclusividade!</h1>
             <p className="mt-6 text-lg text-muted-foreground">Projeto personalizado, fabricação própria e acabamento de alto padrão — do desenho à instalação.</p>
             <div className="mt-10"><Cta>Solicitar orçamento grátis</Cta></div>
             <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-              <li>✓ 25 anos de mercado</li><li>✓ Orçamento e entrega mais rápidos da região</li><li>✓ Fabricação própria</li>
+              <li>✓ 25 anos de mercado</li><li>✓ Orçamento e entrega mais rápidos da região</li><li>✓ Empresa familiar</li>
             </ul>
           </div>
         </div>
@@ -136,9 +148,9 @@ function Index() {
       <section id="sobre" className="mx-auto grid max-w-6xl scroll-mt-24 items-center gap-12 px-6 py-24 md:grid-cols-2 md:px-8">
         <img src={workshop} alt="Marceneiro finalizando móvel" loading="lazy" width={1024} height={1024} className="aspect-square w-full rounded-sm object-cover" />
         <div>
-          <p className="eyebrow">Quem somos</p>
+          <p className="eyebrow">Nossa história</p>
           <h2 className="mt-4 font-display text-4xl md:text-5xl">Marcenaria feita com precisão.</h2>
-          <p className="mt-6 text-muted-foreground">Há 25 anos, a Cedro desenvolve móveis sob medida que unem estética, funcionalidade e acabamento impecável. Acompanhamos cada projeto do planejamento à instalação, com materiais selecionados e atenção a cada detalhe.</p>
+          <p className="mt-6 text-muted-foreground">Somos uma empresa familiar, que prioriza atendimento rápido com acabamentos impecáveis. A Cedro acompanha cada projeto do planejamento à instalação, com materiais selecionados e atenção a cada detalhe.</p>
           <div className="mt-8 grid grid-cols-2 gap-6 border-y border-border py-6">
             <div><p className="font-display text-5xl text-primary">25</p><p className="text-sm text-muted-foreground">anos de mercado</p></div>
             <div><p className="font-display text-2xl leading-tight text-primary">Mais rápido da região</p><p className="text-sm text-muted-foreground">no orçamento e na entrega</p></div>
@@ -150,17 +162,19 @@ function Index() {
       <section id="servicos" className="scroll-mt-24 bg-card px-6 py-24 md:px-8">
         <div className="mx-auto max-w-6xl">
           <p className="eyebrow text-center">Serviços</p>
-          <h2 className="mt-4 text-center font-display text-4xl md:text-5xl">O que fazemos</h2>
-          <div className="mt-12 grid gap-4 md:grid-cols-2">
-            {[[closet, "Closets"], [living, "Salas e painéis"]].map(([img, t]) => (
-              <div key={t} className="relative overflow-hidden rounded-sm">
-                <img src={img} alt={t} loading="lazy" width={1024} height={1024} className="aspect-[4/3] w-full object-cover transition duration-700 hover:scale-105" />
-                <span className="absolute bottom-4 left-4 font-display text-3xl">{t}</span>
+          <h2 className="mt-4 text-center font-display text-4xl md:text-5xl">Cada ambiente, uma obra feita para você</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">Da cozinha ao escritório, transformamos madeira em espaços que contam a sua história — com design exclusivo, funcionalidade e o cuidado de quem faz com as próprias mãos.</p>
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map(([img, t, d]) => (
+              <div key={t} className="group relative overflow-hidden rounded-sm">
+                <img src={img} alt={t} loading="lazy" className="aspect-[3/4] w-full object-cover transition duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-overlay" />
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <h3 className="font-display text-2xl">{t}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{d}</p>
+                </div>
               </div>
             ))}
-          </div>
-          <div className="mt-10 grid grid-cols-2 gap-px bg-border md:grid-cols-4">
-            {services.map((s) => <div key={s} className="bg-card p-6 text-center font-display text-xl">{s}</div>)}
           </div>
         </div>
       </section>
