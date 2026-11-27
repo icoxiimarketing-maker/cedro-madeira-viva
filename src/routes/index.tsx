@@ -1,16 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import logo from "@/assets/cedro-logo-mark.png";
-import hero from "@/assets/hero-kitchen.jpg";
-import closet from "@/assets/closet-grafite.jpg.asset.json";
-import p2 from "@/assets/port-cozinha-cinza.jpg.asset.json";
-import p3 from "@/assets/port-dormitorio-ripado.jpg.asset.json";
-import p4 from "@/assets/port-quarto-planejado.jpg.asset.json";
-import historia from "@/assets/historia-acabamento.jpg.asset.json";
-import banheiro from "@/assets/banheiro-branco.jpg.asset.json";
-import homeOffice from "@/assets/home-office-ripado.jpg.asset.json";
-import corporativo from "@/assets/escritorio-corporativo.jpg.asset.json";
-import loja from "@/assets/loja-showroom.jpeg.asset.json";
+import { siteImages } from "@/lib/site-images";
 
 // WhatsApp da Cedro
 const WHATS = "https://wa.me/5541998359963?text=" + encodeURIComponent("Olá! Gostaria de solicitar um orçamento de móveis sob medida.");
@@ -61,7 +51,7 @@ function Header() {
     <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled || open ? "border-b border-border bg-background/85 backdrop-blur-md" : "border-b border-transparent"}`}>
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-3 md:px-8">
         <a href="#inicio" onClick={() => setOpen(false)} className="shrink-0">
-          <img src={logo} alt="Cedro Móveis Sob Medida" className="h-14 w-auto object-contain md:h-16" />
+          <img src={siteImages.logo} alt="Cedro Móveis Sob Medida" className="h-14 w-auto object-contain md:h-16" />
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex">
@@ -108,14 +98,14 @@ function Header() {
 }
 
 const services: [string, string, string][] = [
-  [p2.url, "Cozinhas planejadas", "O coração da casa, pensado para receber e cozinhar com prazer."],
-  [closet.url, "Closets", "Cada peça no seu lugar, com elegância de boutique."],
-  [p3.url, "Dormitórios", "Conforto e organização para o seu descanso."],
-  [banheiro.url, "Banheiros", "Gabinetes resistentes com o charme da madeira."],
-  [p4.url, "Painéis ripados", "Textura e aconchego que transformam qualquer parede."],
-  [homeOffice.url, "Home office", "Produtividade com estilo, no conforto de casa."],
-  [corporativo.url, "Móveis corporativos", "Ambientes que transmitem a força da sua marca."],
-  [loja.url, "Lojas comerciais", "Expositores que valorizam o seu produto e encantam clientes."],
+  [siteImages.cozinha, "Cozinhas planejadas", "O coração da casa, pensado para receber e cozinhar com prazer."],
+  [siteImages.closet, "Closets", "Cada peça no seu lugar, com elegância de boutique."],
+  [siteImages.dormitorio, "Dormitórios", "Conforto e organização para o seu descanso."],
+  [siteImages.banheiro, "Banheiros", "Gabinetes resistentes com o charme da madeira."],
+  [siteImages.painel, "Painéis ripados", "Textura e aconchego que transformam qualquer parede."],
+  [siteImages.homeOffice, "Home office", "Produtividade com estilo, no conforto de casa."],
+  [siteImages.corporativo, "Móveis corporativos", "Ambientes que transmitem a força da sua marca."],
+  [siteImages.loja, "Lojas comerciais", "Expositores que valorizam o seu produto e encantam clientes."],
 ];
 const steps = [["Atendimento", "Entendemos sua necessidade e espaço."], ["Projeto", "Desenho sob medida com materiais e acabamentos."], ["Aprovação", "Você valida cada detalhe antes da produção."], ["Fabricação", "Produção própria com controle de qualidade."], ["Instalação", "Montagem profissional e cuidadosa."], ["Entrega", "Ambiente pronto, no prazo combinado."]];
 const reviews = [["O projeto ficou exatamente como imaginávamos. Acabamento impecável.", "Mariana A."], ["Tudo muito organizado do atendimento à instalação.", "Rafael M."], ["Qualidade excelente e entrega dentro do prazo.", "Juliana S."]];
@@ -127,7 +117,7 @@ function Index() {
       <Header />
 
       <section className="relative flex min-h-[92vh] items-center">
-        <img src={hero} alt="Cozinha planejada em madeira" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover" />
+        <img src={siteImages.hero} alt="Cozinha planejada em madeira" width={1920} height={1088} className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-overlay" />
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pt-28 md:px-8">
           <div className="max-w-2xl">
@@ -143,7 +133,7 @@ function Index() {
       </section>
 
       <section id="sobre" className="mx-auto grid max-w-6xl scroll-mt-24 items-center gap-12 px-6 py-24 md:grid-cols-2 md:px-8">
-        <img src={historia.url} alt="Marceneiro aplicando acabamento com pincel em peças de madeira apoiadas em cavaletes na oficina" loading="lazy" width={1200} height={1200} className="aspect-square w-full rounded-sm object-cover" />
+        <img src={siteImages.historia} alt="Marceneiro aplicando acabamento com pincel em peças de madeira apoiadas em cavaletes na oficina" loading="lazy" width={1200} height={1200} className="aspect-square w-full rounded-sm object-cover" />
         <div>
           <p className="eyebrow">Nossa história</p>
           <h2 className="mt-4 font-display text-4xl md:text-5xl">De pai para filho, a arte de transformar madeira em lar.</h2>

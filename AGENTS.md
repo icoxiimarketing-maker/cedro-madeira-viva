@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project architecture
+
+- Centralize rendered image paths in `src/lib/site-images.ts` and serve their unchanged binaries from `public/images`; this keeps image delivery portable to independent hosts and testable without CDN access.
