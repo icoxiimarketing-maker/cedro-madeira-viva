@@ -10,7 +10,7 @@ import historia from "@/assets/historia-acabamento.jpg.asset.json";
 import banheiro from "@/assets/banheiro-branco.jpg.asset.json";
 import homeOffice from "@/assets/home-office-ripado.jpg.asset.json";
 import corporativo from "@/assets/escritorio-corporativo.jpg.asset.json";
-import loja from "@/assets/svc-loja.jpg";
+import loja from "@/assets/loja-showroom.jpeg.asset.json";
 
 // WhatsApp da Cedro
 const WHATS = "https://wa.me/5541998359963?text=" + encodeURIComponent("Olá! Gostaria de solicitar um orçamento de móveis sob medida.");
@@ -115,7 +115,7 @@ const services: [string, string, string][] = [
   [p4.url, "Painéis ripados", "Textura e aconchego que transformam qualquer parede."],
   [homeOffice.url, "Home office", "Produtividade com estilo, no conforto de casa."],
   [corporativo.url, "Móveis corporativos", "Ambientes que transmitem a força da sua marca."],
-  [loja, "Lojas comerciais", "Expositores que valorizam o seu produto e encantam clientes."],
+  [loja.url, "Lojas comerciais", "Expositores que valorizam o seu produto e encantam clientes."],
 ];
 const steps = [["Atendimento", "Entendemos sua necessidade e espaço."], ["Projeto", "Desenho sob medida com materiais e acabamentos."], ["Aprovação", "Você valida cada detalhe antes da produção."], ["Fabricação", "Produção própria com controle de qualidade."], ["Instalação", "Montagem profissional e cuidadosa."], ["Entrega", "Ambiente pronto, no prazo combinado."]];
 const reviews = [["O projeto ficou exatamente como imaginávamos. Acabamento impecável.", "Mariana A."], ["Tudo muito organizado do atendimento à instalação.", "Rafael M."], ["Qualidade excelente e entrega dentro do prazo.", "Juliana S."]];
