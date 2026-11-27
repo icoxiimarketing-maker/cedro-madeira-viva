@@ -6,7 +6,7 @@ import closet from "@/assets/closet.jpg";
 import p2 from "@/assets/port-cozinha-cinza.jpg.asset.json";
 import p3 from "@/assets/port-dormitorio-ripado.jpg.asset.json";
 import p4 from "@/assets/port-quarto-planejado.jpg.asset.json";
-import workshop from "@/assets/workshop.jpg";
+import historia from "@/assets/historia-acabamento.jpg.asset.json";
 import banheiro from "@/assets/svc-banheiro.jpg";
 import homeOffice from "@/assets/svc-home-office.jpg";
 import corporativo from "@/assets/svc-corporativo.jpg";
@@ -143,7 +143,7 @@ function Index() {
       </section>
 
       <section id="sobre" className="mx-auto grid max-w-6xl scroll-mt-24 items-center gap-12 px-6 py-24 md:grid-cols-2 md:px-8">
-        <img src={workshop} alt="Marceneiro finalizando móvel" loading="lazy" width={1024} height={1024} className="aspect-square w-full rounded-sm object-cover" />
+        <img src={historia.url} alt="Marceneiro aplicando acabamento com pincel em peças de madeira apoiadas em cavaletes na oficina" loading="lazy" width={1200} height={1200} className="aspect-square w-full rounded-sm object-cover" />
         <div>
           <p className="eyebrow">Nossa história</p>
           <h2 className="mt-4 font-display text-4xl md:text-5xl">De pai para filho, a arte de transformar madeira em lar.</h2>
