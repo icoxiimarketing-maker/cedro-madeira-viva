@@ -98,6 +98,7 @@
   --ring: oklch(0.78 0.08 65);
   --whatsapp: oklch(0.68 0.17 150);
   --overlay: linear-gradient(90deg, oklch(0.12 0.008 60 / 92%) 0%, oklch(0.12 0.008 60 / 55%) 60%, oklch(0.12 0.008 60 / 20%) 100%);
+  --overlay-b: linear-gradient(0deg, oklch(0.12 0.008 60 / 94%) 0%, oklch(0.12 0.008 60 / 62%) 38%, oklch(0.12 0.008 60 / 0%) 78%);
 }
 
 @layer base {
@@ -116,5 +117,6 @@
 }
 
 @utility bg-overlay { background-image: var(--overlay); }
+@utility bg-overlay-b { background-image: var(--overlay-b); }
 @utility eyebrow { font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--primary); }
 body { font-family: var(--font-sans); }

@@ -2,14 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import logo from "@/assets/cedro-logo-mark.png";
 import hero from "@/assets/hero-kitchen.jpg";
-import closet from "@/assets/closet.jpg";
+import closet from "@/assets/closet-grafite.jpg.asset.json";
 import p2 from "@/assets/port-cozinha-cinza.jpg.asset.json";
 import p3 from "@/assets/port-dormitorio-ripado.jpg.asset.json";
 import p4 from "@/assets/port-quarto-planejado.jpg.asset.json";
 import historia from "@/assets/historia-acabamento.jpg.asset.json";
-import banheiro from "@/assets/svc-banheiro.jpg";
-import homeOffice from "@/assets/svc-home-office.jpg";
-import corporativo from "@/assets/svc-corporativo.jpg";
+import banheiro from "@/assets/banheiro-branco.jpg.asset.json";
+import homeOffice from "@/assets/home-office-ripado.jpg.asset.json";
+import corporativo from "@/assets/escritorio-corporativo.jpg.asset.json";
 import loja from "@/assets/svc-loja.jpg";
 
 // WhatsApp da Cedro
@@ -109,12 +109,12 @@ function Header() {
 
 const services: [string, string, string][] = [
   [p2.url, "Cozinhas planejadas", "O coração da casa, pensado para receber e cozinhar com prazer."],
-  [closet, "Closets", "Cada peça no seu lugar, com elegância de boutique."],
+  [closet.url, "Closets", "Cada peça no seu lugar, com elegância de boutique."],
   [p3.url, "Dormitórios", "Conforto e organização para o seu descanso."],
-  [banheiro, "Banheiros", "Gabinetes resistentes com o charme da madeira."],
+  [banheiro.url, "Banheiros", "Gabinetes resistentes com o charme da madeira."],
   [p4.url, "Painéis ripados", "Textura e aconchego que transformam qualquer parede."],
-  [homeOffice, "Home office", "Produtividade com estilo, no conforto de casa."],
-  [corporativo, "Móveis corporativos", "Ambientes que transmitem a força da sua marca."],
+  [homeOffice.url, "Home office", "Produtividade com estilo, no conforto de casa."],
+  [corporativo.url, "Móveis corporativos", "Ambientes que transmitem a força da sua marca."],
   [loja, "Lojas comerciais", "Expositores que valorizam o seu produto e encantam clientes."],
 ];
 const steps = [["Atendimento", "Entendemos sua necessidade e espaço."], ["Projeto", "Desenho sob medida com materiais e acabamentos."], ["Aprovação", "Você valida cada detalhe antes da produção."], ["Fabricação", "Produção própria com controle de qualidade."], ["Instalação", "Montagem profissional e cuidadosa."], ["Entrega", "Ambiente pronto, no prazo combinado."]];
@@ -165,7 +165,7 @@ function Index() {
             {services.map(([img, t, d]) => (
               <div key={t} className="group relative overflow-hidden rounded-sm">
                 <img src={img} alt={t} loading="lazy" className="aspect-[3/4] w-full object-cover transition duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-overlay" />
+                <div className="absolute inset-0 bg-overlay-b" />
                 <div className="absolute inset-x-0 bottom-0 p-5">
                   <h3 className="font-display text-2xl">{t}</h3>
                   <p className="mt-1 text-sm text-muted-foreground">{d}</p>
